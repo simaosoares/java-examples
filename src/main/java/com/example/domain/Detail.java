@@ -1,28 +1,28 @@
-package com.example;
+package com.example.domain;
 
-class Detail {
+public class Detail {
 
     private Integer id;
     private String name;
 
-    Detail(String name) {
+    public Detail(String name) {
         this.name = name;
     }
 
-    Detail(Integer id, String name) {
+    public Detail(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    Integer getId() {
+    public Integer getId() {
         return id;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

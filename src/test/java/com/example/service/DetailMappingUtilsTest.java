@@ -1,12 +1,13 @@
-package com.example;
+package com.example.service;
 
+import com.example.domain.Detail;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class DetailMappingUtilsTest {
 

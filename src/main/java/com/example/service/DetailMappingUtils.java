@@ -1,4 +1,6 @@
-package com.example;
+package com.example.service;
+
+import com.example.domain.Detail;
 
 import java.util.ArrayList;
 import java.util.List;
