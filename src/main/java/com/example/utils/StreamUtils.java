@@ -3,6 +3,7 @@ package com.example.utils;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.*;
 
@@ -29,6 +30,21 @@ public class StreamUtils {
                 .reduce(toOnlyElementThrowing(IllegalStateException::new))
                 // and one result must exist
                 .orElseThrow(notFoundException);
+    }
+
+    /**
+     * Filter collection to only one element optional
+     * @param <T> the object type of the collection
+     * @param collection collection
+     * @param predicate filter
+     * @return filtered element
+     * @throws IllegalStateException in case the filter return more than one element
+     */
+    public static <T> Optional<T> filterToOnlyOneElementOptional(List<T> collection, Predicate<T> predicate) throws IllegalStateException {
+        return collection.stream()
+                .filter(predicate)
+                // more than one result cannot occur
+                .reduce(toOnlyElementThrowing(IllegalStateException::new));
     }
 
     /**

@@ -6,10 +6,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Unit tests for {@link StreamUtils} class
@@ -30,6 +30,12 @@ public class StreamUtilsTest {
         User user = StreamUtils.filterToOnlyOneElement(users, u -> u.getName().equals("Kabal"), IllegalStateException::new);
 
         assertNotNull(user);
+    }
+
+    @Test
+    public void filterToOnlyOneElementOptional_shouldReturnOneElement() {
+        Optional<User> user = StreamUtils.filterToOnlyOneElementOptional(users, u -> u.getId().equals(2));
+        assertTrue(user.isPresent());
     }
 
     @Test
